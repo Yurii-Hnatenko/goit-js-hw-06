@@ -1,24 +1,28 @@
 class StringBuilder {
-  constructor(initialValue) {
-    this.value = initialValue;
-  }
+    #value;
 
-  getValue() {
-    return this.value;
-  }
+    constructor(initialValue) {
+        this.#value = initialValue;
+    }
 
-  padEnd(str) {
-    this.value += str;
-  }
+    getValue() {
+        return this.#value;
+    }
 
-  padStart(str) {
-    this.value = str + this.value;
-  }
+    padEnd(str) {
+        this.#value += str;
+    }
 
-  padBoth(str) {
-    this.value = str + this.value + str;
-  }
+    padStart(str) {
+        this.#value = str + this.#value;
+    }
+
+    padBoth(str) {
+        this.padStart(str);
+        this.padEnd(str);
+    }
 }
+
 
 const builder = new StringBuilder(".");
 console.log(builder.getValue()); // "."
